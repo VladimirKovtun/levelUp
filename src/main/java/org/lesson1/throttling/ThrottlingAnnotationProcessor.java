@@ -13,19 +13,21 @@ public class ThrottlingAnnotationProcessor {
         for (Method method : declaredMethods) {
             Throttling annotation = method.getAnnotation(Throttling.class);
             if (annotation != null) {
-                return proxy(object, method, annotation);
+                return proxy(object, declaredMethods, annotation);
             }
         }
         return object;
     }
 
-    private Object proxy(final Object object, final Method anMethod, Throttling annotation) {
+    private Object proxy(final Object object, final Method[] anMethod, Throttling annotation) {
        return Proxy.newProxyInstance(object.getClass().getClassLoader(),
                                      object.getClass().getInterfaces(),
                                      new InvocationHandler() {
                                      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                                        if (method.getName().equals(anMethod.getName())) {
-                                            System.out.println("Invoke");
+                                        for (Method method1 : anMethod) {
+                                            if (method.getName().equals(method1.getName())) {
+                                                System.out.println("Invoke");
+                                            }
                                         }
                                         //gateway.processRequest(args)
                                        return method.invoke(object, args);
