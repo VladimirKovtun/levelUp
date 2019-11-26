@@ -1,3 +1,5 @@
+package org.lesson1.hW1;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -46,8 +48,8 @@ public class HW1 {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
-        //List<File> path = new HW1().path("org.lesson1.hW1");
-        List<String> path = new HW1().path("org.lesson1.hW1");
+        //List<File> path = new org.lesson1.HW1().path("org.lesson1.hW1.level0");
+        List<String> path = new HW1().path("org.lesson1.hW1.level0");
         for (String cls : path) {
             Class<?> aClass = Class.forName(cls);
             Method toString = aClass.getDeclaredMethod("toString");

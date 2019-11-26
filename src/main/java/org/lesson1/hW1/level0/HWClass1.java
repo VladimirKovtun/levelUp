@@ -1,14 +1,14 @@
-package org.lesson1.hW1;
+package org.lesson1.hW1.level0;
 
-public class HWClass2 {
+public class HWClass1 {
     private String name;
     private int age;
     private boolean sex;
 
-    public HWClass2() {
-        name = "Marina";
-        age = 16;
-        sex = false;
+    public HWClass1() {
+        name = "Ivan";
+        age = 14;
+        sex = true;
     }
 
     @Override
