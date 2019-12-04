@@ -3,10 +3,10 @@ package org.lesson7.book.store;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public final class HibdernateUtils {
+public final class HibernateUtils {
     private static SessionFactory factory;
 
-    private HibdernateUtils() {}
+    private HibernateUtils() {}
 
     static {
         Configuration configuration = new Configuration().configure();
