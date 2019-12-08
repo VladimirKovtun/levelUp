@@ -1,10 +1,10 @@
-package org.lesson7.book.store.repository;
+package org.book.store.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.lesson7.book.store.domain.Publisher;
+import org.book.store.domain.Publisher;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -12,7 +12,7 @@ public class PublisherRepository {
 
     private final SessionFactory factory;
 
-    public Publisher createPublisher(String name) {
+    public Publisher create(String name) {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -24,7 +24,7 @@ public class PublisherRepository {
         return publisher;
        }
 
-       public Publisher updatePublisher(Integer id, String name) {
+       public Publisher update(Integer id, String name) {
            Session session = factory.openSession();
            Transaction transaction = session.beginTransaction();
 
@@ -37,7 +37,7 @@ public class PublisherRepository {
            return publisher;
        }
 
-    public Publisher deletePublisher(Integer id) {
+    public Publisher delete(Integer id) {
         Session session = factory.openSession();
         session.beginTransaction();
 
@@ -50,7 +50,7 @@ public class PublisherRepository {
         return publisher;
     }
 
-    public Publisher getPublisherById(Integer id) {
+    public Publisher findById(Integer id) {
         Session session = factory.openSession();
 
         Publisher publisher = session.get(Publisher.class, id);
@@ -60,7 +60,7 @@ public class PublisherRepository {
         return publisher;
     }
 
-    public List<Publisher> getAllPublisher() {
+    public List<Publisher> findAll() {
         List<Publisher> publishersList;
         Session session = factory.openSession();
 

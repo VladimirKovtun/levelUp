@@ -9,11 +9,12 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">1234</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="org.lesson7.book.store.domain.Publisher"/>
-        <mapping class="org.lesson7.book.store.domain.Book"/>
+        <mapping class="org.book.store.domain.Publisher"/>
+        <mapping class="org.book.store.domain.Book"/>
+        <mapping class="org.book.store.domain.BookDetails"/>
     </session-factory>
 </hibernate-configuration>
